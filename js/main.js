@@ -1,7 +1,15 @@
 "use strict";
 
 const newForm = document.querySelector(".js-new-form");
-newForm.classList.remove("collapsed");
+// newForm.classList.remove("collapsed");
+
+//condición para que si en la sección js-new-form existe la clase collapsed, quitarla
+//si no, añadirla
+if (newForm.classList.contains("collapsed")) {
+  newForm.classList.remove("collapsed");
+} else {
+  newForm.classList.add("collapsed");
+}
 
 let newKitten = document.querySelector(".js-list");
 
