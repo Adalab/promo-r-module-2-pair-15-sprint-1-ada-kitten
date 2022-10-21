@@ -114,7 +114,7 @@ const content = kittenOne + kittenTwo + kittenThree;
 newKitten.innerHTML = content;*/
 
 const inputSearchDesc = document.querySelector(".js_in_search_desc");
-inputSearchDesc.value = "";
+inputSearchDesc.value = "cariñoso";
 
 const inputValue = inputSearchDesc.value;
 
