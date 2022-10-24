@@ -5,11 +5,11 @@ const newForm = document.querySelector(".js-new-form");
 
 //condición para que si en la sección js-new-form existe la clase collapsed, quitarla
 //si no, añadirla
-if (newForm.classList.contains("collapsed")) {
+/*if (newForm.classList.contains("collapsed")) {
   newForm.classList.remove("collapsed");
 } else {
   newForm.classList.add("collapsed");
-}
+}*/
 
 let newKitten = document.querySelector(".js-list");
 
@@ -113,7 +113,7 @@ const kittenThree = `<li class="card">
 const content = kittenOne + kittenTwo + kittenThree;
 newKitten.innerHTML = content;*/
 
-const inputSearchDesc = document.querySelector(".js_in_search_desc");
+const inputSearchDesc = document.querySelector(".js-input-desc");
 inputSearchDesc.value = "";
 
 const inputValue = inputSearchDesc.value;
@@ -136,13 +136,66 @@ if (inputValue != "") {
 }
 
 
-//clase eventos
+//clase eventos ej.1
 
 const addIcon = document.querySelector(".fa-plus-circle");
-
 addIcon.addEventListener ("click", (event) => {
   event.preventDefault();
-
+  if (newForm.classList.contains("collapsed")) {
+    newForm.classList.remove("collapsed");
+  } else {
+    newForm.classList.add("collapsed");
+  }
 });
+
+//clase eventos ej.2
+
+const addButton = document.querySelector(".js-btn-add");
+const photoInput = document.querySelector(".js-input-photo");
+const nameInput = document.querySelector(".js-input-name");
+const descInput = document.querySelector(".js-desc");
+const labelMessageError = document.querySelector(".js-label-error");
+
+addButton.addEventListener ("click", (event) => {
+  event.preventDefault();
+  const valueDesc = descInput.value;
+  const valuePhoto = photoInput.value;
+  const valueName = nameInput.value;
+  
+  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+    labelMessageError.innerHTML = "Debe rellenar todos los valores";
+  } else {
+    labelMessageError.innerHTML = "";
+  }
+})
+
+//clase eventos ej.3 
+
+const findBtn = document.querySelector(".js-btn-find");
+const breed = document.querySelector(".js-breed");
+const desc = document.querySelector(".js-desc");
+const findMessageError = document.querySelector(".js-find-error");
+
+findBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  const valueDesc = desc.value;
+  const valueBreed = breed.value;
+  
+  if (valueDesc === '' || valueBreed === '') {
+    findMessageError.innerHTML = "Debe rellenar todos los valores";
+  } else {
+    findMessageError.innerHTML = "";
+  }
+})
+
+//clase eventos ej.4
+
+const cancelBtn = document.querySelector(".button-cancel");
+
+cancelBtn.addEventListener("click", (event) => {
+  newForm.classList.add("collapsed");
+  //crear condición para el botón cancelar
+})
+
 
   
