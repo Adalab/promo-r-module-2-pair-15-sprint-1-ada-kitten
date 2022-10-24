@@ -114,7 +114,7 @@ const content = kittenOne + kittenTwo + kittenThree;
 newKitten.innerHTML = content;*/
 
 const inputSearchDesc = document.querySelector(".js_in_search_desc");
-inputSearchDesc.value = "cariñoso";
+inputSearchDesc.value = "";
 
 const inputValue = inputSearchDesc.value;
 
@@ -134,3 +134,15 @@ if (inputValue != "") {
     newKitten.innerHTML += kittenThree;
   }
 }
+
+
+//clase eventos
+
+const addIcon = document.querySelector(".fa-plus-circle");
+
+addIcon.addEventListener ("click", (event) => {
+  event.preventDefault();
+
+});
+
+  
