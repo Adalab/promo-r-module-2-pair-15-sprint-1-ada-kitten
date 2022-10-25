@@ -122,7 +122,7 @@ const content = kittenOne + kittenTwo + kittenThree;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // ESTO ES PARA LA SECCIÓN DE FILTRAR/BUSCAR:
-// SI EL VALOR DEL INPUT ESTA VACIO, NO MOSTRAR NINGÚN GATO
+// SI EL VALOR DEL INPUT ESTA VACIO, NO MUESTRAR NINGÚN GATO
 // SI NO, MOSTRAR SOLO AQUELLOS QUE TENGAN MATCH CON
 // LAS DESCRIPCIONES QUE EL USUARIO INTRUZCA
 const inputSearchDesc = document.querySelector(".js-desc");
@@ -144,80 +144,84 @@ if (inputValue != "") {
   }
 }
 
-// //clase eventos ej.1
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//clase eventos ej.1
+//ESTO ES PARA QUE AL HACER CLICK EN + SE MUESTRE
+//O SE QUITE EL FORMULARIO DE "AGREGAMOS UN NUEVO GATITO?"
 
-// const addIcon = document.querySelector(".fa-plus-circle");
-// addIcon.addEventListener ("click", (event) => {
-//   event.preventDefault();
-//   if (newForm.classList.contains("collapsed")) {
-//     newForm.classList.remove("collapsed");
-//   } else {
-//     newForm.classList.add("collapsed");
-//   }
-// });
+const addIcon = document.querySelector(".fa-plus-circle");
+addIcon.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (newForm.classList.contains("collapsed")) {
+    newForm.classList.remove("collapsed");
+  } else {
+    newForm.classList.add("collapsed");
+  }
+});
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // //clase eventos ej.2
+//ESTO ES PARA QUE AL HACER CLICK EN "AÑADIR" SE MUESTRE
+//UN MENSAJE SI ALGUN INPUT ESTA VACIO Y
+//SI TODOS ESTAN RELLENADOS, QUE NO MUESTRE NINGÚN MENSAJE
 
-// const addButton = document.querySelector(".js-btn-add");
-// const photoInput = document.querySelector(".js-input-photo");
-// const nameInput = document.querySelector(".js-input-name");
-// const descInput = document.querySelector(".js-input-desc");
-// const labelMessageError = document.querySelector(".js-label-error");
+const addButton = document.querySelector(".js-btn-add");
+const photoInput = document.querySelector(".js-input-photo");
+const nameInput = document.querySelector(".js-input-name");
+const breedInput = document.querySelector(".js-input-breed");
+const descInput = document.querySelector(".js-input-desc");
+const labelMessageError = document.querySelector(".js-label-error");
 
-// addButton.addEventListener ("click", (event) => {
-//   event.preventDefault();
-//   const valueDesc = descInput.value;
-//   const valuePhoto = photoInput.value;
-//   const valueName = nameInput.value;
-//   console.log(valueDesc);
-//   if (valueDesc === "" || valuePhoto === "" || valueName === "") {
-//     labelMessageError.innerHTML = "Debe rellenar todos los valores";
-//   } else if (valueDesc !== "" && valuePhoto !== "" && valueName !== "") {
-//     labelMessageError.innerHTML = "";
-//   }
-// })
+addButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  const valueDesc = descInput.value;
+  const valuePhoto = photoInput.value;
+  const valueName = nameInput.value;
+  console.log(valueDesc);
+  if (valueDesc === "" || valuePhoto === "" || valueName === "") {
+    labelMessageError.innerHTML = "Debe rellenar todos los valores";
+  } else {
+    labelMessageError.innerHTML = "";
+  }
+});
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // //clase eventos ej.3
+//ESTO ES PARA QUE AL HACER CLICK EN "BUSCAR"
+//SI UNO DE LOS CAMPOS ESTE VACIO, QUE SALGA EL MENSAJE
+//SI LOS DOS ESTAN RELLENOS, NO SALGA NINGUN MENSAJE
 
-// const findBtn = document.querySelector(".js-btn-find");
-// const breed = document.querySelector(".js-breed");
-// const desc = document.querySelector(".js-desc");
-// const findMessageError = document.querySelector(".js-find-error");
+const findBtn = document.querySelector(".js-btn-find");
+const desc = document.querySelector(".js-desc");
+const breed = document.querySelector(".js-breed");
+const findMessageError = document.querySelector(".js-find-error");
 
-// findBtn.addEventListener("click", (event) => {
-//   event.preventDefault();
-//   const valueDesc = desc.value;
-//   const valueBreed = breed.value;
+findBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  const valueDesc = desc.value;
+  const valueBreed = breed.value;
 
-//   if (valueDesc === '' || valueBreed === '') {
-//     findMessageError.innerHTML = "Debe rellenar todos los valores";
-//   }
-//   //condición para que solo aparezcan gatos si el input tenga valor.
-//   //si la condición se cumple, analiza cada gato para ver si el valor esta presente.
-//   //si la condición se cumple se pinta la info del gato
-// if (inputValue === "cariñoso") {
-//   if (kittenOneDesc.includes(inputValue)) {
-//     newKitten.innerHTML = kittenOne;
-//   }
+  if (valueDesc === "" || valueBreed === "") {
+    findMessageError.innerHTML = "Debe rellenar todos los valores";
+  } else {
+    findMessageError.innerHTML = "";
+  }
+});
 
-//   if (kittenTwoDesc.includes(inputValue)) {
-//     newKitten.innerHTML += kittenTwo;
-//   }
-
-//   if (kittenThreeDesc.includes(inputValue)) {
-//     newKitten.innerHTML += kittenThree;
-//   }
-//   else {
-//     findMessageError.innerHTML = "";
-// }
-
-// }
-
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // //clase eventos ej.4
+//ESTO ES PARA QUE AL HACER CLICK EN "CANCELAR"
+//TODOS LOS INPUTS DE FORM SE VACIEN Y QUE
+//EL FORM DESAPAREZCA
 
-// const cancelBtn = document.querySelector(".button-cancel");
+const cancelBtn = document.querySelector(".button-cancel");
 
-// cancelBtn.addEventListener("click", () => {
-//   newForm.classList.add("collapsed");
-//   //crear condición para el botón cancelar
-// })
+cancelBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  photoInput.value = "";
+  nameInput.value = "";
+  breedInput.value = "";
+  descInput.value = "";
+  console.log(descInput);
+  newForm.classList.add("collapsed");
+});
