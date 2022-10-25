@@ -63,7 +63,7 @@ const kittenThree = `<li class="card">
 </article>
 </li>`;
 
-// const content = kittenOne + kittenTwo + kittenThree;
+ const content = kittenOne + kittenTwo + kittenThree;
 // newKitten.innerHTML = content;
 
 /*const kittenOne = `<li class="card">
@@ -153,7 +153,7 @@ addIcon.addEventListener ("click", (event) => {
 const addButton = document.querySelector(".js-btn-add");
 const photoInput = document.querySelector(".js-input-photo");
 const nameInput = document.querySelector(".js-input-name");
-const descInput = document.querySelector(".js-desc");
+const descInput = document.querySelector(".js-input-desc");
 const labelMessageError = document.querySelector(".js-label-error");
 
 addButton.addEventListener ("click", (event) => {
@@ -161,10 +161,10 @@ addButton.addEventListener ("click", (event) => {
   const valueDesc = descInput.value;
   const valuePhoto = photoInput.value;
   const valueName = nameInput.value;
-  
-  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+  console.log(valueDesc);
+  if (valueDesc === "" || valuePhoto === "" || valueName === "") {
     labelMessageError.innerHTML = "Debe rellenar todos los valores";
-  } else {
+  } else if (valueDesc !== "" && valuePhoto !== "" && valueName !== "") {
     labelMessageError.innerHTML = "";
   }
 })
@@ -183,9 +183,27 @@ findBtn.addEventListener("click", (event) => {
   
   if (valueDesc === '' || valueBreed === '') {
     findMessageError.innerHTML = "Debe rellenar todos los valores";
-  } else {
-    findMessageError.innerHTML = "";
+  } 
+    //condición para que solo aparezcan gatos si el input tenga valor.
+//si la condición se cumple, analiza cada gato para ver si el valor esta presente.
+//si la condición se cumple se pinta la info del gato
+if (inputValue === "cariñoso") {
+  if (kittenOneDesc.includes(inputValue)) {
+    newKitten.innerHTML = kittenOne;
   }
+
+  if (kittenTwoDesc.includes(inputValue)) {
+    newKitten.innerHTML += kittenTwo;
+  }
+
+  if (kittenThreeDesc.includes(inputValue)) {
+    newKitten.innerHTML += kittenThree;
+  }
+  else {
+    findMessageError.innerHTML = ""; 
+}
+
+
 })
 
 //clase eventos ej.4
