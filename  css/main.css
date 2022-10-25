@@ -163,7 +163,7 @@ li {
 }
 
 .new-form {
-  top: 50px;
+  top: 90px;
   width: 40vh;
   background-color: white;
   box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%),
@@ -212,4 +212,10 @@ li {
   padding: 5px;
   margin: 5px;
   color: white;
+}
+.hidden {
+  display: none;
+}
+.fa-plus-circle {
+  cursor: pointer;
 }
