@@ -149,7 +149,7 @@ if (inputValue != "") {
 //ESTO ES PARA QUE AL HACER CLICK EN + SE MUESTRE
 //O SE QUITE EL FORMULARIO DE "AGREGAMOS UN NUEVO GATITO?"
 
-const addIcon = document.querySelector(".fa-plus-circle");
+/*const addIcon = document.querySelector(".fa-plus-circle");
 addIcon.addEventListener("click", (event) => {
   event.preventDefault();
   if (newForm.classList.contains("collapsed")) {
@@ -157,7 +157,7 @@ addIcon.addEventListener("click", (event) => {
   } else {
     newForm.classList.add("collapsed");
   }
-});
+});*/
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // //clase eventos ej.2
@@ -222,6 +222,29 @@ cancelBtn.addEventListener("click", (event) => {
   nameInput.value = "";
   breedInput.value = "";
   descInput.value = "";
-  console.log(descInput);
   newForm.classList.add("collapsed");
 });
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//clase funciones 1 ej.1
+//ESTO ES PARA QUE AL HACER CLICK EN "+"
+//SE MUESTRE O SE QUITE EL FORMULARIO "AÑADIMOS UNA NUEVO GATITO?"
+//ESTO HACE LO MISMO QUE - EJERCICIO 1 DE EVENTOS - 
+
+function showNewCatForm() {
+ newForm.classList.remove("collapsed");
+}
+function hideNewCatForm () {
+  newForm.classList.add("collapsed");
+}
+
+function handleClickNewCatForm(event) {
+  event.preventDefault();
+  if(newForm.classList.contains("collapsed")) {
+    showNewCatForm();
+  } else {
+    hideNewCatForm();
+  }
+};
+const addIcon = document.querySelector(".fa-plus-circle");
+addIcon.addEventListener("click", handleClickNewCatForm);
