@@ -63,7 +63,7 @@ newKitten.innerHTML = content;*/
 
 // - -  A C T U A L  M A N E R A  D E  P I N T A R  L O S  G A T O S - - //
 
-const newKitten = document.querySelector(".js-list");
+// const newKitten = document.querySelector(".js-list");
 
 const kittenOneImage = "https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg";
 const kittenOneName = "Anastacio";
@@ -81,40 +81,40 @@ const kittenThreeName = "cielo".toUpperCase();
 const kittenThreeDesc = "Ruiseño, juguetón, le gusta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!";
 const kittenThreeBreed = "British Shorthair";
 
-const kittenOne = `<li class="card">
-<article>
-  <img class="card_img" src= ${kittenOneImage} alt="gatito" />
-  <h3 class="card_title">${kittenOneName}</h3>
-  <h4 class="card_race">${kittenOneBreed}</h4>
-  <p class="card_description">
-    ${kittenOneDesc}
-  </p>
-</article>
-</li>`;
+// const kittenOne = `<li class="card">
+// <article>
+//   <img class="card_img" src= ${kittenOneImage} alt="gatito" />
+//   <h3 class="card_title">${kittenOneName}</h3>
+//   <h4 class="card_race">${kittenOneBreed}</h4>
+//   <p class="card_description">
+//     ${kittenOneDesc}
+//   </p>
+// </article>
+// </li>`;
 
-const kittenTwo = `<li class="card">
-<article>
-  <img class="card_img" src= ${kittenTwoImage} alt="gatito" />
-  <h3 class="card_title">${kittenTwoName}</h3>
-  <h4 class="card_race">${kittenTwoBreed}</h4>
-  <p class="card_description">
-    ${kittenTwoDesc}
-  </p>
-</article>
-</li>`;
+// const kittenTwo = `<li class="card">
+// <article>
+//   <img class="card_img" src= ${kittenTwoImage} alt="gatito" />
+//   <h3 class="card_title">${kittenTwoName}</h3>
+//   <h4 class="card_race">${kittenTwoBreed}</h4>
+//   <p class="card_description">
+//     ${kittenTwoDesc}
+//   </p>
+// </article>
+// </li>`;
 
-const kittenThree = `<li class="card">
-<article>
-  <img class="card_img" src= ${kittenThreeImage} alt="gatito" />
-  <h3 class="card_title">${kittenThreeName}</h3>
-  <h4 class="card_race">${kittenThreeBreed}</h4>
-  <p class="card_description">
-    ${kittenThreeDesc}
-  </p>
-</article>
-</li>`;
+// const kittenThree = `<li class="card">
+// <article>
+//   <img class="card_img" src= ${kittenThreeImage} alt="gatito" />
+//   <h3 class="card_title">${kittenThreeName}</h3>
+//   <h4 class="card_race">${kittenThreeBreed}</h4>
+//   <p class="card_description">
+//     ${kittenThreeDesc}
+//   </p>
+// </article>
+// </li>`;
 
-const content = kittenOne + kittenTwo + kittenThree;
+// const content = kittenOne + kittenTwo + kittenThree;
 //ESTA COMENTADO PARA QUE LA CONDICION DE ABAJO SOLO PINTE
 //LOS GATOS CUANDO TENGAN EL MISMO VALUE QUE EL USUARIO ESCRIBIÓ
 // newKitten.innerHTML = content;
@@ -229,22 +229,49 @@ cancelBtn.addEventListener("click", (event) => {
 //clase funciones 1 ej.1
 //ESTO ES PARA QUE AL HACER CLICK EN "+"
 //SE MUESTRE O SE QUITE EL FORMULARIO "AÑADIMOS UNA NUEVO GATITO?"
-//ESTO HACE LO MISMO QUE - EJERCICIO 1 DE EVENTOS - 
+//ESTO HACE LO MISMO QUE - EJERCICIO 1 DE EVENTOS -
 
 function showNewCatForm() {
- newForm.classList.remove("collapsed");
+  newForm.classList.remove("collapsed");
 }
-function hideNewCatForm () {
+function hideNewCatForm() {
   newForm.classList.add("collapsed");
 }
 
 function handleClickNewCatForm(event) {
   event.preventDefault();
-  if(newForm.classList.contains("collapsed")) {
+  if (newForm.classList.contains("collapsed")) {
     showNewCatForm();
   } else {
     hideNewCatForm();
   }
-};
+}
 const addIcon = document.querySelector(".fa-plus-circle");
 addIcon.addEventListener("click", handleClickNewCatForm);
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//clase funciones 1 ej.2
+//1- llamar donde vamos a mostrar los gatos
+
+let kittenList = document.querySelector(".js-list");
+
+function renderKitten(url, name, breed, desc) {
+  const html = `
+  <li class="card">
+   <article>
+  <img class="card_img" src= ${url} alt="gatito" />
+   <h3 class="card_title">${name}</h3>
+   <h4 class="card_race">${breed}</h4>
+    <p class="card_description">
+      ${desc}
+    </p>
+ </article>
+   </li>`;
+  return html;
+}
+
+kittenList.innerHTML += renderKitten(kittenOneImage, kittenOneName, kittenOneBreed, kittenOneDesc);
+
+kittenList.innerHTML += renderKitten(kittenTwoImage, kittenTwoName, kittenTwoBreed, kittenTwoDesc);
+
+kittenList.innerHTML += renderKitten(kittenThreeImage, kittenThreeName, kittenThreeBreed, kittenThreeDesc);
