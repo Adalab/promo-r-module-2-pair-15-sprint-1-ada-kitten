@@ -172,7 +172,9 @@ const breedInput = document.querySelector(".js-input-breed");
 const descInput = document.querySelector(".js-input-desc");
 const labelMessageError = document.querySelector(".js-label-error");
 
-addButton.addEventListener("click", (event) => {
+//esta función va a ser mejorada en el ej.3 de funciones 1
+
+/*addButton.addEventListener("click", (event) => {
   event.preventDefault();
   const valueDesc = descInput.value;
   const valuePhoto = photoInput.value;
@@ -183,7 +185,7 @@ addButton.addEventListener("click", (event) => {
   } else {
     labelMessageError.innerHTML = "";
   }
-});
+});*/
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // //clase eventos ej.3
@@ -251,6 +253,7 @@ addIcon.addEventListener("click", handleClickNewCatForm);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 //clase funciones 1 ej.2
+// esto es para enseñar los gatos 
 //1- llamar donde vamos a mostrar los gatos
 
 let kittenList = document.querySelector(".js-list");
@@ -275,3 +278,27 @@ kittenList.innerHTML += renderKitten(kittenOneImage, kittenOneName, kittenOneBre
 kittenList.innerHTML += renderKitten(kittenTwoImage, kittenTwoName, kittenTwoBreed, kittenTwoDesc);
 
 kittenList.innerHTML += renderKitten(kittenThreeImage, kittenThreeName, kittenThreeBreed, kittenThreeDesc);
+
+//ejercicio 3 clase funciones 1
+
+
+function renderNewKitten(valueDesc, valuePhoto, valueName, valueBreed) {
+  kittenList.innerHTML += renderKitten(valuePhoto, valueName, valueBreed, valueDesc);
+}
+
+
+function addNewKitten(event) {
+  event.preventDefault();
+  const valueDesc = descInput.value;
+  const valuePhoto = photoInput.value;
+  const valueName = nameInput.value;
+  const valueBreed = breedInput.value;
+  console.log(valueDesc);
+  if (valueDesc === "" || valuePhoto === "" || valueName === "") {
+    labelMessageError.innerHTML = "Debe rellenar todos los valores";
+  } else {
+    labelMessageError.innerHTML = "";
+    renderNewKitten(valueDesc, valuePhoto, valueName, valueBreed);
+  }
+} 
+addButton.addEventListener("click", addNewKitten);
